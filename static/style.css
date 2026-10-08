@@ -1,0 +1,111 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Inter, Segoe UI, Arial, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 36px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #8b949e;
+}
+
+h1 { margin: 0; font-size: 42px; }
+
+.subtitle { color: #8b949e; margin-top: 10px; }
+
+.badge, .status {
+    border: 1px solid #30363d;
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: #8b949e;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.card, .panel {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 14px;
+}
+
+.card { padding: 22px; }
+
+.card span {
+    display: block;
+    color: #8b949e;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.card strong { font-size: 30px; }
+.card strong.small { font-size: 18px; word-break: break-word; }
+
+.panel { overflow: hidden; }
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 22px;
+    border-bottom: 1px solid #30363d;
+}
+
+.panel-header h2 { margin: 0; font-size: 18px; }
+.panel-header span { color: #8b949e; }
+
+table { width: 100%; border-collapse: collapse; }
+
+th, td {
+    text-align: left;
+    padding: 16px 22px;
+    border-bottom: 1px solid #21262d;
+}
+
+th {
+    color: #8b949e;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.status { padding: 5px 9px; }
+
+footer {
+    color: #6e7681;
+    margin-top: 24px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    header { flex-direction: column; }
+}
+
+@media (max-width: 520px) {
+    .cards { grid-template-columns: 1fr; }
+    h1 { font-size: 32px; }
+    table { font-size: 13px; }
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IT Infrastructure Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div>
+            <p class="eyebrow">IT OPERATIONS LAB</p>
+            <h1>Infrastructure Monitor</h1>
+            <p class="subtitle">A lightweight administration and monitoring dashboard.</p>
+        </div>
+        <div class="badge">LAB ENVIRONMENT</div>
+    </header>
+
+    <section class="cards">
+        <div class="card">
+            <span>CPU Usage</span>
+            <strong>{{ metrics.cpu_percent }}%</strong>
+        </div>
+        <div class="card">
+            <span>Memory Usage</span>
+            <strong>{{ metrics.memory_percent }}%</strong>
+        </div>
+        <div class="card">
+            <span>Disk Usage</span>
+            <strong>{{ metrics.disk_percent }}%</strong>
+        </div>
+        <div class="card">
+            <span>Host</span>
+            <strong class="small">{{ metrics.hostname }}</strong>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <h2>Server Inventory</h2>
+            <span>{{ servers|length }} systems</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Hostname</th>
+                    <th>IP Address</th>
+                    <th>Operating System</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for server in servers %}
+                <tr>
+                    <td>{{ server.hostname }}</td>
+                    <td>{{ server.ip_address }}</td>
+                    <td>{{ server.os }}</td>
+                    <td><span class="status">Configured</span></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <footer>Python · Flask · SQLite · Docker · PowerShell</footer>
+</div>
+</body>
+</html>
